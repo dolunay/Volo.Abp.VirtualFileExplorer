@@ -1,11 +1,10 @@
 ﻿@page "/VirtualFileExplorer"
 @using Volo.Abp.BlazoriseUI.Components
-@using Microsoft.AspNetCore.Authorization
-@using Volo.Abp.BlazoriseUI.Components.ObjectExtending
 @using Volo.Abp.AspNetCore.Components.Web.Theming.Layout
 @using Volo.Abp.VirtualFileExplorer.Blazor.Components
 @using Volo.Abp.VirtualFileExplorer.Blazor.Localization
 @using Volo.Abp.VirtualFileExplorer.Blazor.Models
+@using Volo.Abp.VirtualFileExplorer.Blazor.Services
 @inject AbpBlazorMessageLocalizerHelper<VirtualFileExplorerResource> LH
 
 @inherits AbpReadOnlyPageBase<IVirtualFileExplorerAppService, FileInfoViewModel, string, GetVirtualFileExplorerInput>

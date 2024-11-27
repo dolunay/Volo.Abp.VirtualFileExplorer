@@ -1,7 +1,5 @@
-﻿@using System;
-@using Microsoft.Extensions.Localization
+﻿@using Microsoft.Extensions.Localization
 @using Volo.Abp.VirtualFileExplorer.Blazor.Localization
-@using Volo.Abp.VirtualFileExplorer.Blazor.Models
 
 @inject IStringLocalizer<VirtualFileExplorerResource> L
 
@@ -9,13 +7,12 @@
 {
     <Button Block="true"
             Color="@Color.Default"
-            Clicked="@FolderClickedAsync"
-            >
-        @if (!string.IsNullOrEmpty(FileInfo.Icon))
-        {
-            <Icon Name="@FileInfo.Icon" Class="me-1" />
-        }
-        <Span>
+            Clicked="@FolderClickedAsync">
+        <Span TextAlignment="TextAlignment.Start" Class="btn-block">
+            @if (!string.IsNullOrEmpty(FileInfo.Icon))
+            {
+                <Icon Name="@FileInfo.Icon" Class="me-1" />
+            }
             @FileInfo.FileName
         </Span>
     </Button>
@@ -25,11 +22,11 @@
     <Button Block="true"
             Color="@Color.Default"
             Clicked="@FileClickedAsync">
-        @if (!string.IsNullOrEmpty(FileInfo.Icon))
-        {
-            <Icon Name="@FileInfo.Icon" Class="me-1" />
-        }
-        <Span>
+        <Span TextAlignment="TextAlignment.Start" Class="btn-block">
+            @if (!string.IsNullOrEmpty(FileInfo.Icon))
+            {
+                <Icon Name="@FileInfo.Icon" Class="me-1" />
+            }
             @FileInfo.FilePath
         </Span>
     </Button>

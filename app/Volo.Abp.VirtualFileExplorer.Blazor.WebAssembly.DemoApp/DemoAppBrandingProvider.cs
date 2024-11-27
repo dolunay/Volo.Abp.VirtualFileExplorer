@@ -7,5 +7,5 @@ namespace Volo.Abp.VirtualFileExplorer.Blazor.WebAssembly.DemoApp;
 public class DemoAppBrandingProvider : DefaultBrandingProvider
 {
     public override string AppName => "DemoApp";
-    public override string LogoUrl => "logo.svg";
+    public override string LogoUrl => "icon-48.png";
 }

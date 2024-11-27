@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "app\\Volo.Abp.VirtualFileExplorer.Blazor.WebAssembly.DemoApp\\Volo.Abp.VirtualFileExplorer.Blazor.WebAssembly.DemoApp.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "app\\Volo.Abp.VirtualFileExplorer.Blazor.Server.DemoApp\\Volo.Abp.VirtualFileExplorer.Blazor.Server.DemoApp.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

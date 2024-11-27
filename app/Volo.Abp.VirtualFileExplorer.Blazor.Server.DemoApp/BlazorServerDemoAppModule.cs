@@ -28,6 +28,7 @@ using Volo.Abp.VirtualFileExplorer.Blazor.Server.DemoApp.Components;
 using Volo.Abp.VirtualFileExplorer.Blazor.Server;
 using Volo.Abp.VirtualFileExplorer.Blazor.Server.DemoApp.Localization;
 using Volo.Abp.VirtualFileExplorer.Blazor.Server.DemoApp.Menus;
+using Microsoft.AspNetCore.Cors;
 
 namespace Volo.Abp.VirtualFileExplorer.Blazor.Server.DemoApp;
 
@@ -85,6 +86,7 @@ public class BlazorServerDemoAppModule : AbpModule
             .AddInteractiveServerComponents();
 
         ConfigureUrls(configuration);
+        ConfigureCors(context, configuration);
         ConfigureBundles();
         ConfigureAutoMapper(context);
         ConfigureVirtualFiles(hostingEnvironment);
@@ -236,6 +238,26 @@ public class BlazorServerDemoAppModule : AbpModule
         });
     }
 
+    private void ConfigureCors(ServiceConfigurationContext context, IConfiguration configuration)
+    {
+        context.Services.AddCors(options =>
+        {
+            options.AddDefaultPolicy(builder =>
+            {
+                builder
+                    .WithOrigins(configuration["App:CorsOrigins"]?
+                        .Split(",", StringSplitOptions.RemoveEmptyEntries)
+                        .Select(o => o.RemovePostFix("/"))
+                        .ToArray() ?? [])
+                    .WithAbpExposedHeaders()
+                    .SetIsOriginAllowedToAllowWildcardSubdomains()
+                    .AllowAnyHeader()
+                    .AllowAnyMethod()
+                    .AllowCredentials();
+            });
+        });
+    }
+
     public override void OnApplicationInitialization(ApplicationInitializationContext context)
     {
         var env = context.GetEnvironment();
@@ -257,6 +279,7 @@ public class BlazorServerDemoAppModule : AbpModule
         app.UseCorrelationId();
         app.MapAbpStaticAssets();
         app.UseRouting();
+        app.UseCors();
         app.UseAuthentication();
 
         if (IsMultiTenant)

@@ -4,7 +4,13 @@
 		<TargetFramework>net9.0</TargetFramework>
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
+		<BlazorWebAssemblyLoadAllGlobalizationData>true</BlazorWebAssemblyLoadAllGlobalizationData>
 	</PropertyGroup>
+
+	<ItemGroup>
+		<Content Remove="Localization\DemoApp\*.json" />
+		<EmbeddedResource Include="Localization\DemoApp\*.json" />
+	</ItemGroup>
 
 	<ItemGroup>
 		<PackageReference Include="Volo.Abp.AutoMapper" />

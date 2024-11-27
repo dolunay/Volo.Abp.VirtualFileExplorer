@@ -52,7 +52,7 @@ public partial class VirtualFileExplorerManagement
 
     protected override ValueTask SetBreadcrumbItemsAsync()
     {
-        BreadcrumbItems.Add(new BlazoriseUI.BreadcrumbItem(L["Menu:VirtualFileExplorerManagement"].Value));
+        BreadcrumbItems.Add(new BlazoriseUI.BreadcrumbItem(L["Menu:VirtualFileExplorer"].Value));
         var paths = CurrentPath.TrimStart('/').TrimEnd('/').Split("/");
         foreach (var path in paths)
         {

@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-using Syrna.Alpha.Blazor.Host;
+using Volo.Abp.VirtualFileExplorer.Blazor.WebAssembly.DemoApp;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 var application = await builder.AddApplicationAsync<DemoAppModule>(options =>

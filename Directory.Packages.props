@@ -3,11 +3,28 @@
 		<ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
 	</PropertyGroup>
 	<ItemGroup>
+		<PackageVersion Include="Volo.Abp.Core" Version="9.0.0" />
 		<PackageVersion Include="Volo.Abp.Autofac" Version="9.0.0" />
+		<PackageVersion Include="Volo.Abp.AutoMapper" Version="9.0.0" />
 		<PackageVersion Include="Volo.Abp.AspNetCore" Version="9.0.0" />
+		<PackageVersion Include="Volo.Abp.AspNetCore.Components.Web" Version="9.0.0" />
+		<PackageVersion Include="Volo.Abp.AspNetCore.Components.Web.Theming" Version="9.0.0" />
+		<PackageVersion Include="Volo.Abp.AspNetCore.Components.Server.Theming" Version="9.0.0" />
+		<PackageVersion Include="Volo.Abp.AspNetCore.Components.WebAssembly.Theming" Version="9.0.0" />
+		<PackageVersion Include="Volo.Abp.AspNetCore.Mvc" Version="9.0.0" />
 		<PackageVersion Include="Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic" Version="9.0.0" />
 		<PackageVersion Include="Volo.Abp.AspNetCore.Mvc.UI.Theme.Shared" Version="9.0.0" />
 		<PackageVersion Include="Volo.Abp.VirtualFileSystem" Version="9.0.0" />
+		<PackageVersion Include="Volo.Abp.Autofac.WebAssembly" Version="9.0.0" />
+		<PackageVersion Include="Blazorise.Bootstrap5" Version="1.6.2.0" />
+		<PackageVersion Include="Blazorise.Icons.FontAwesome" Version="1.6.2.0" />
+		<PackageVersion Include="Volo.Abp.AspNetCore.Components.WebAssembly.BasicTheme" Version="9.0.0" />
+		<PackageVersion Include="Volo.Abp.Swashbuckle" Version="9.0.0" />
+		<PackageVersion Include="Volo.Abp.AspNetCore.Mvc.UI.MultiTenancy" Version="9.0.0" />
+		<PackageVersion Include="Volo.Abp.AspNetCore.Mvc.UI.Theme.LeptonXLite" Version="3.2.0" />
+		<PackageVersion Include="Volo.Abp.AspNetCore.Components.Server.LeptonXLiteTheme" Version="3.2.0" />
+		<PackageVersion Include="Volo.Abp.AspNetCore.Serilog" Version="9.0.0" />
+		<PackageVersion Include="Volo.Abp.Emailing" Version="9.0.0" />
 	</ItemGroup>
 	<ItemGroup>
 		<PackageVersion Include="aliyun-net-sdk-sts" Version="3.1.2" />

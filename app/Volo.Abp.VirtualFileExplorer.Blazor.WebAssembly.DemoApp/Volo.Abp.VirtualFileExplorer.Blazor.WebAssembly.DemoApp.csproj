@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
+
+	<PropertyGroup>
+		<TargetFramework>net9.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Volo.Abp.AutoMapper" />
+		<PackageReference Include="Volo.Abp.Autofac.WebAssembly" />
+
+		<PackageReference Include="Blazorise.Bootstrap5" />
+		<PackageReference Include="Blazorise.Icons.FontAwesome" />
+
+		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" />
+		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" PrivateAssets="all" />
+		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Authentication" />
+		<PackageReference Include="Volo.Abp.AspNetCore.Components.WebAssembly.BasicTheme" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\src\Volo.Abp.VirtualFileExplorer.Blazor.WebAssembly\Volo.Abp.VirtualFileExplorer.Blazor.WebAssembly.csproj" />
+	</ItemGroup>
+
+</Project>

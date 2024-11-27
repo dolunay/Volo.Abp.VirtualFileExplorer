@@ -1,0 +1,78 @@
+﻿@using Volo.Abp.UI.Navigation
+<div class="top-row ps-3 navbar navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="">OpenIddict.Demo.Client.BlazorWASM</a>
+        <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+</div>
+
+<div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
+    <nav class="flex-column">
+        @foreach (var menuItem in Menu.Items)
+        {
+            <div class="nav-item px-3">
+                <NavLink class="nav-link" href="@menuItem.Url" Match="NavLinkMatch.All">
+                    <Blazorise.Icon Name="@menuItem.Icon" />@menuItem.DisplayName
+                </NavLink>
+            </div>
+        }
+    </nav>
+</div>
+
+@code {
+    private bool collapseNavMenu = true;
+
+    private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        Menu = await MenuManager.GetMainMenuAsync();
+        foreach (var item in Menu.Items.OrderBy(x => x.Order))
+        {
+            var item1 = new MenuItem()
+                {
+                    Icon = item.Icon,
+                    Text = item.DisplayName,
+                    Url = item.Url,
+                    Level = 0
+                };
+            IncludeSubItems(item, item1, 1);
+            NavigablePages.Add(item1);
+        }
+    }
+
+    void IncludeSubItems(ApplicationMenuItem item, MenuItem item1, int level)
+    {
+        if (!item.IsLeaf)
+        {
+            var subItems = new List<MenuItem>();
+            foreach (var subItem in item.Items.OrderBy(x => x.Order))
+            {
+                var item2 = new MenuItem()
+                    {
+                        Icon = subItem.Icon,
+                        Text = subItem.DisplayName,
+                        Url = subItem.Url,
+                        Level = level
+                    };
+                IncludeSubItems(subItem, item2, level + 1);
+                subItems.Add(item2);
+            }
+            item1.Items = subItems;
+        }
+    }
+
+    public List<MenuItem> NavigablePages { get; set; } = [];
+
+    protected ApplicationMenu Menu { get; set; }
+
+    [Inject]
+    protected IMenuManager MenuManager { get; set; }
+}

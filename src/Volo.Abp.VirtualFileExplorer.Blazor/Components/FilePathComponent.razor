@@ -1,0 +1,37 @@
+﻿@using System;
+@using Microsoft.Extensions.Localization
+@using Volo.Abp.VirtualFileExplorer.Blazor.Localization
+@using Volo.Abp.VirtualFileExplorer.Blazor.Models
+
+@inject IStringLocalizer<VirtualFileExplorerResource> L
+
+@if (FileInfo.IsDirectory)
+{
+    <Button Block="true"
+            Color="@Color.Default"
+            Clicked="@FolderClickedAsync"
+            >
+        @if (!string.IsNullOrEmpty(FileInfo.Icon))
+        {
+            <Icon Name="@FileInfo.Icon" Class="me-1" />
+        }
+        <Span>
+            @FileInfo.FileName
+        </Span>
+    </Button>
+}
+@if (!FileInfo.IsDirectory)
+{
+    <Button Block="true"
+            Color="@Color.Default"
+            Clicked="@FileClickedAsync">
+        @if (!string.IsNullOrEmpty(FileInfo.Icon))
+        {
+            <Icon Name="@FileInfo.Icon" Class="me-1" />
+        }
+        <Span>
+            @FileInfo.FilePath
+        </Span>
+    </Button>
+}
+<FileContentModal @ref="FileContentModal" />
